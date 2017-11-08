@@ -17,6 +17,7 @@ TABLEDATE=$(date --date="-$DATENUM day" +"%Y%m%d") #This is the date format we w
 
 bq query \
 --destination_table=MyDataset.TempTable_$TABLEDATE \
+--use_legacy_sql=false \
 --allow_large_results \
 --replace <<EOF
 --<<Add your query here>>
@@ -28,6 +29,7 @@ EOF
 #You can have multiple queries in one shell script. The queries will run one after the other and can be handy for creating and analysing new tables.
 bq query \
 --destination_table=MyDataset.MyDestinationTable_$TABLEDATE \
+--use_legacy_sql=false \
 --allow_large_results \
 --replace <<EOF
 --<<Add your query here>>

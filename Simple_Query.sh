@@ -7,7 +7,9 @@
 #You can add all the options you would normally find in the Big Query UI.
 bq query \
 --destination_table=[MyDataset].MyDestinationTable \
---append_table <<EOF
+--append_table /
+--use_legacy_sql=false
+<<EOF
 --<<Add your query here>>
 --Query data from last week
 SELECT *
